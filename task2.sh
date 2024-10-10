@@ -1,0 +1,1 @@
+for file in file_*; do csc_count=$(grep -o "CSC510" "$file" | wc -l); if grep -q "sample" "$file" && [ "$csc_count" -ge 3 ]; then echo "$csc_count $file"; fi; done | sort -rn | while read count file; do echo "$count $(echo "$file" | sed 's/file_/filtered_/')"; done
